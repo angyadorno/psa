@@ -1,26 +1,56 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Layout} from 'antd';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import MenuTop from './components/MenuTop';
 
-function App() {
+//importando las paginas
+import Home from './pages/home';
+import Contact from './pages/contact';
+import Error404 from './pages/error404';
+import Eventos from './pages/eventos';
+import Info from './pages/info';
+
+
+export default function App() {
+  
+  //destructrurando el Layout
+  const {Header, Content, Footer} = Layout;
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Router>
+        <Header>
+          <MenuTop/>
+          
+        </Header>
+        <Content style={{ padding: '0 50px' }}>
+          <Switch>
+
+            <Route path='/' exact={true}>
+              <Home/>
+            </Route>
+
+            <Route path='/info' exact={true}>
+              <Info/>
+            </Route>
+
+            <Route path='/eventos' exact={true}>
+              <Eventos/>
+            </Route>
+
+            <Route path='/contact' exact={true}>
+              <Contact/>
+            </Route>
+
+            <Route path='*' exact={true}>
+              <Error404/>
+            </Route>
+
+          </Switch>
+        </Content>
+      </Router>
+      <Footer style={{ textAlign: 'center' }}>PSA ©2020 All rights reserved</Footer>
+    </Layout>
   );
 }
 
-export default App;

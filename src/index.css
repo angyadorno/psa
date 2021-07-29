@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.site-layout-content {
+  background: #fff;
+  padding: 24px;
+  min-height: 280px;
+  text-align: justify;
+}
+
+.TextOnTop{
+  padding: 30px;
+  text-align: center;
+}
+
+.ImgContent {
+  padding: 0px;
+  height: 200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
